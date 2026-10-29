@@ -1,10 +1,36 @@
-public class Main{
-    public static void main(String[] args){
-        BankAccount acc = new BankAccount("ACC-101", "Alice", 1000);
-        acc.deposit(-200);
-        acc.deposit(500);
-        acc.withdraw(2000);
-        acc.withdraw(300);
-        acc.displayAccountInfo();
+public class PartTimeEmployee extends Employee {
+
+    private int hoursWorked;
+    private double hourlyRate;
+
+    public PartTimeEmployee(String id, String name, int hoursWorked, double hourlyRate) {
+        super(id,name,0);
+        this.hoursWorked = hoursWorked;
+        this.hourlyRate = hourlyRate;
+    }
+
+    public int getHoursWorked() {
+        return hoursWorked;
+    }
+
+    public double getHourlyRate() {
+        return hourlyRate;
+    }
+
+    public void setHoursworked(int hoursworked) {
+        if (hoursworked >= 0) {
+            this.hoursWorked = hoursworked;
+        }
+    }
+
+    public void setHourlyRate(double hourlyRate) {
+        if (hourlyRate >= 0) {
+            this.hourlyRate = hourlyRate;
+        }
+    }
+
+    @Override
+    public double calculateSalary() {
+        return hoursWorked * hourlyRate;
     }
 }
